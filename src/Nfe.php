@@ -29,4 +29,13 @@ class Nfe
         }
         return $this->client->send('GET', "/nfe/{$key}", []);
     }
+
+    public function pdf($payload): stdClass
+    {
+        $key = preg_replace("/[^0-9]/", "",$payload['chave']);
+        if (empty($key) || strlen($key) != 44) {
+            throw new \Exception('A chave para gerar o PDF deve ter 44 digitos numericos');
+        }
+        return $this->client->send('GET', "/nfe/pdf/{$key}", []);
+    }
 }

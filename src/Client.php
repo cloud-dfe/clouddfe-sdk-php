@@ -59,5 +59,4 @@ class Client
         $response = $this->client->request($method, $route, $payload);
         return json_decode($response->getBody()->getContents());
     }
-
 }
