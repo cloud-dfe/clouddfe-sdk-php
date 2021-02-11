@@ -19,7 +19,8 @@
         "ext-dom": "*",
         "ext-json": "*",
         "ext-simplexml": "*",
-        "ext-libxml": "*"
+        "ext-libxml": "*",
+        "guzzlehttp/guzzle": "^7.2"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.4",
