@@ -4,20 +4,18 @@ declare(strict_types=1);
 
 namespace CloudDfe\Sdk;
 
-use CloudDfe\Sdk\Client;
+use stdClass;
 
-class Emitente
+class Emitente extends Base
 {
-    protected $client;
-
-    public function __construct(Client $client)
-    {
-        $this->client = $client;
-
-    }
-
-    public function token()
+    public function token(): stdClass
     {
         return $this->client->send('GET', '/emitente/token', []);
+    }
+
+    public function atualiza(array $payload): stdClass
+    {
+        $json = json_encode($payload);
+        return $this->client->send('PUT', "/emitente", ['body' => $json]);
     }
 }

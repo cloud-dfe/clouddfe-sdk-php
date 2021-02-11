@@ -12,7 +12,6 @@ use GuzzleHttp\Exception\ServerException;
 
 class Client
 {
-
     protected $ambiente;
     protected $token;
     protected $options;

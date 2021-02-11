@@ -5,17 +5,9 @@ declare(strict_types=1);
 namespace CloudDfe\Sdk;
 
 use stdClass;
-use CloudDfe\Sdk\Client;
 
-class Nfe
+class Nfe extends Base
 {
-    protected $client;
-
-    public function __construct(Client $client)
-    {
-        $this->client = $client;
-    }
-
     public function cria(array $payload): stdClass
     {
         $json = json_encode($payload);
