@@ -38,4 +38,10 @@ class Nfe
         }
         return $this->client->send('GET', "/nfe/pdf/{$key}", []);
     }
+
+    public function busca($payload): stdClass
+    {
+        $json = json_encode($payload);
+        return $this->client->send('POST', "/nfe/busca", ['body' => $json]);
+    }
 }

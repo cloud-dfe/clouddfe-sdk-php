@@ -27,7 +27,7 @@ class Client
         if (empty($params)) {
             throw new \Exception("Devem ser passados os parametros básicos.");
         }
-        if (!in_array($params['ambiente'], [1, 2])) {
+        if (!in_array($params['ambiente'], [self::AMBIENTE_PRODUCAO, self::AMBIENTE_HOMOLOGACAO])) {
             throw new \Exception("O ambiente de ser 1-produção ou 2-homologação.");
         }
         if (empty($params['token'])) {
@@ -40,7 +40,7 @@ class Client
 
         //default homologacao
         $this->uri = 'http://localhost:8081';
-        if ($this->ambiente == 1) {
+        if ($this->ambiente == self::AMBIENTE_PRODUCAO) {
             $this->uri = 'http://localhost:8081';
         }
         $this->client = new GClient([
