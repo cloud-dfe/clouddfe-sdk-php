@@ -10,8 +10,7 @@ class CteOS extends Base
 {
     public function cria(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/cteos", ['body' => $json]);
+        return $this->client->send('POST', "/cteos", $payload);
     }
 
     public function status(): stdClass
@@ -27,26 +26,22 @@ class CteOS extends Base
 
     public function busca(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/cteos/busca", ['body' => $json]);
+        return $this->client->send('POST', "/cteos/busca", $payload);
     }
 
     public function cancela(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/cteos/cancela", ['body' => $json]);
+        return $this->client->send('POST', "/cteos/cancela", $payload);
     }
 
     public function correcao(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/cteos/correcao", ['body' => $json]);
+        return $this->client->send('POST', "/cteos/correcao", $payload);
     }
 
     public function inutiliza(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/cteos/inutiliza", ['body' => $json]);
+        return $this->client->send('POST', "/cteos/inutiliza", $payload);
     }
 
     public function pdf(array $payload): stdClass
@@ -57,7 +52,6 @@ class CteOS extends Base
 
     public function backup(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/cte/backup", ['body' => $json]);
+        return $this->client->send('POST', "/cte/backup", $payload);
     }
 }

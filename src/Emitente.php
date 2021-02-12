@@ -15,7 +15,6 @@ class Emitente extends Base
 
     public function atualiza(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('PUT', "/emitente", ['body' => $json]);
+        return $this->client->send('PUT', "/emitente", $payload);
     }
 }

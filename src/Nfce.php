@@ -10,8 +10,7 @@ class Nfce extends Base
 {
     public function cria(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/ncfe", ['body' => $json]);
+        return $this->client->send('POST', "/ncfe", $payload);
     }
 
     public function status(): stdClass
@@ -27,14 +26,12 @@ class Nfce extends Base
 
     public function busca(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/ncfe/busca", ['body' => $json]);
+        return $this->client->send('POST', "/ncfe/busca", $payload);
     }
 
     public function cancela(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/ncfe/cancela", ['body' => $json]);
+        return $this->client->send('POST', "/ncfe/cancela", $payload);
     }
 
     public function offline(): stdClass
@@ -44,8 +41,7 @@ class Nfce extends Base
 
     public function inutiliza(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/nfe/inutiliza", ['body' => $json]);
+       return $this->client->send('POST', "/nfe/inutiliza", $payload);
     }
 
     public function pdf(array $payload): stdClass
@@ -56,13 +52,11 @@ class Nfce extends Base
 
     public function substitui(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/nfe/substitui", ['body' => $json]);
+        return $this->client->send('POST', "/nfe/substitui", $payload);
     }
 
     public function backup(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/nfe/backup", ['body' => $json]);
+        return $this->client->send('POST', "/nfe/backup", $payload);
     }
 }

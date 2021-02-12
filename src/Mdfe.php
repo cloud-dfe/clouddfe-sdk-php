@@ -10,8 +10,7 @@ class Mdfe extends Base
 {
     public function cria(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/mdfe", ['body' => $json]);
+        return $this->client->send('POST', "/mdfe", $payload);
     }
 
     public function status(): stdClass
@@ -27,26 +26,22 @@ class Mdfe extends Base
 
     public function busca(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/mdfe/busca", ['body' => $json]);
+        return $this->client->send('POST', "/mdfe/busca", $payload);
     }
 
     public function cancela(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/mdfe/cancela", ['body' => $json]);
+        return $this->client->send('POST', "/mdfe/cancela", $payload);
     }
 
     public function encerra(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/mdfe/encerra", ['body' => $json]);
+        return $this->client->send('POST', "/mdfe/encerra", $payload);
     }
 
     public function condutor(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/mdfe/condutor", ['body' => $json]);
+        return $this->client->send('POST', "/mdfe/condutor", $payload);
     }
 
     public function offline(): stdClass
@@ -57,18 +52,11 @@ class Mdfe extends Base
     public function pdf(array $payload): stdClass
     {
         $key = self::checkKey($payload);
-        return $this->client->send('GET', "/nfe/pdf/{$key}", []);
-    }
-
-    public function manifesta(array $payload): stdClass
-    {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/nfe/manifesta", ['body' => $json]);
+        return $this->client->send('GET', "/mdfe/pdf/{$key}", []);
     }
 
     public function backup(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/nfe/backup", ['body' => $json]);
+        return $this->client->send('POST', "/nfe/backup", $payload);
     }
 }

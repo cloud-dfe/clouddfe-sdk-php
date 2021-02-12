@@ -10,8 +10,7 @@ class Softhouse extends Base
 {
     public function criaEmitente(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/soft/emitente", ['body' => $json]);
+        return $this->client->send('POST', "/soft/emitente", $payload);
     }
 
     public function mostraEmitente($payload): stdClass

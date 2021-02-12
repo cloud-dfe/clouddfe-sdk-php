@@ -10,8 +10,7 @@ class Nfse extends Base
 {
     public function cria(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/nfse", ['body' => $json]);
+        return $this->client->send('POST', "/nfse", $payload);
     }
 
     public function consulta(array $payload): stdClass
@@ -22,25 +21,21 @@ class Nfse extends Base
 
     public function cancela(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/nfse/cancela", ['body' => $json]);
+        return $this->client->send('POST', "/nfse/cancela", $payload);
     }
 
     public function busca(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/nfse/busca", ['body' => $json]);
+        return $this->client->send('POST', "/nfse/busca", $payload);
     }
 
     public function backup(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/nfse/backup", ['body' => $json]);
+        return $this->client->send('POST', "/nfse/backup", $payload);
     }
 
     public function localiza(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/nfse/consulta", ['body' => $json]);
+        return $this->client->send('POST', "/nfse/consulta", $payload);
     }
 }
