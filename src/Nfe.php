@@ -10,8 +10,7 @@ class Nfe extends Base
 {
     public function cria(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/nfe", ['body' => $json]);
+        return $this->client->send('POST', "/nfe", $payload);
     }
 
     public function status(): stdClass
@@ -27,26 +26,22 @@ class Nfe extends Base
 
     public function busca(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/nfe/busca", ['body' => $json]);
+        return $this->client->send('POST', "/nfe/busca", $payload);
     }
 
     public function cancela(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/nfe/cancela", ['body' => $json]);
+        return $this->client->send('POST', "/nfe/cancela", $payload);
     }
 
     public function correcao(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/nfe/correcao", ['body' => $json]);
+        return $this->client->send('POST', "/nfe/correcao", $payload);
     }
 
     public function inutiliza(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/nfe/inutiliza", ['body' => $json]);
+        return $this->client->send('POST', "/nfe/inutiliza", $payload);
     }
 
     public function pdf(array $payload): stdClass
@@ -57,14 +52,12 @@ class Nfe extends Base
 
     public function manifesta(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/nfe/manifesta", ['body' => $json]);
+        return $this->client->send('POST', "/nfe/manifesta", $payload);
     }
 
     public function backup(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/nfe/backup", ['body' => $json]);
+        return $this->client->send('POST', "/nfe/backup", $payload);
     }
 
     public function download(array $payload): stdClass
