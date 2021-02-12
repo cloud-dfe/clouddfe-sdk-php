@@ -1,6 +1,6 @@
 <?php
 
-require_once('../bootstrap.php');
+require_once('../../bootstrap.php');
 
 use CloudDfe\Sdk\Client;
 use CloudDfe\Sdk\Nfe;
@@ -8,7 +8,7 @@ use CloudDfe\Sdk\Nfe;
 try {
 
     //token de emitente
-    $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbXAiOiI4IiwidXNyIjoiMTkiLCJ0cCI6MiwiaWF0IjoxNTgyODA5MzA2fQ.P0f6CAv9MFpLjmaLKU2V_MCFuFO2xzHZj7x';
+    $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbXAiOjcwLCJ1c3IiOiIyIiwidHAiOjIsImlhdCI6MTU4MDkzNzM3MH0.KvSUt2x8qcu4Rtp2XNTOINqR-3c5V8iyITDmLoUF_SE';
     $ambiente = Client::AMBIENTE_HOMOLOGACAO;
     $options = [
         'debug' => false
@@ -24,7 +24,7 @@ try {
 
     $resp = $nfe->busca([
         "numero_inicial" => 1710,
-        "numero_final" => 1720,
+        "numero_final" => 101002,
         "serie" => 1,
         //"data_inicial" => "2019-12-01",
         //"data_final" => "2019-12-31",

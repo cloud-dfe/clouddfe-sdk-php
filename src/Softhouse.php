@@ -13,7 +13,7 @@ class Softhouse extends Base
         return $this->client->send('POST', "/soft/emitente", $payload);
     }
 
-    public function mostraEmitente($payload): stdClass
+    public function mostraEmitente(array $payload): stdClass
     {
         $cnpj = $payload['cnpj'];
         return $this->client->send('GET', "/soft/emitente/{$cnpj}", []);
@@ -29,7 +29,7 @@ class Softhouse extends Base
         return $this->client->send('GET', $rota, []);
     }
 
-    public function deletaEmitente($payload): stdClass
+    public function deletaEmitente(array $payload): stdClass
     {
         $cnpj = $payload['cnpj'];
         return $this->client->send('DELETE', "/soft/emitente/{$cnpj}", []);

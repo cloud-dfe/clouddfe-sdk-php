@@ -1,14 +1,14 @@
 <?php
 
-require_once('../bootstrap.php');
+require_once('../../bootstrap.php');
 
 use CloudDfe\Sdk\Client;
-use CloudDfe\Sdk\Nfe;
+use CloudDfe\Sdk\Nfce;
 
 try {
 
     //token de emitente
-    $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbXAiOiI4IiwidXNyIjoiMTkiLCJ0cCI6MiwiaWF0IjoxNTgyODA5MzA2fQ.P0f6CAv9MFpLjmaLKU2V_MCFuFO';
+    $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbXAiOjcwLCJ1c3IiOiIyIiwidHAiOjIsImlhdCI6MTU4MDkzNzM3MH0.KvSUt2x8qcu4Rtp2XNTOINqR-3c5V8iyITDmLoUF_SE';
     $ambiente = Client::AMBIENTE_HOMOLOGACAO;
     $options = [
         'debug' => false
@@ -20,11 +20,9 @@ try {
         'options' => $options
     ]);
 
-    $nfe = new Nfe($client);
+    $nfce = new Nfce($client);
 
-    $resp = $nfe->consulta([
-        'chave' => '32200227701830000100550010000017181215176775'
-    ]);
+    $resp = $nfce->offline();
 
     echo "<pre>";
     print_r($resp);

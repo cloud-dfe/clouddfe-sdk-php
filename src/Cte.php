@@ -50,19 +50,8 @@ class Cte extends Base
         return $this->client->send('GET', "/cte/pdf/{$key}", []);
     }
 
-    public function manifesta(array $payload): stdClass
-    {
-        return $this->client->send('POST', "/cte/manifesta", $payload);
-    }
-
     public function backup(array $payload): stdClass
     {
         return $this->client->send('POST', "/cte/backup", $payload);
-    }
-
-    public function download(array $payload): stdClass
-    {
-        $key = self::checkKey($payload);
-        return $this->client->send('GET', "/cte/download/{$key}", []);
     }
 }

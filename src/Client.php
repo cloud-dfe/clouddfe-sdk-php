@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace CloudDfe\Sdk;
 
-use stdClass;
 use GuzzleHttp\Client as GClient;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\ServerException;
+use stdClass;
 
 
 class Client
@@ -55,11 +53,10 @@ class Client
 
     public function send(string $method, string $route, array $payload = []): stdClass
     {
-        if (!empty($payload)) {
-            $json = json_encode($payload);
-            $payload = ['body' => $json];
-        }
+        $json = json_encode($payload);
+        $payload = ['body' => $json];
         $response = $this->client->request($method, $route, $payload);
-        return json_decode($response->getBody()->getContents());
+        $body = $response->getBody()->getContents();
+        return json_decode($body);
     }
 }
