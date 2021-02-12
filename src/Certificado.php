@@ -10,8 +10,7 @@ class Certificado extends Base
 {
     public function atualiza(array $payload): stdClass
     {
-        $json = json_encode($payload);
-        return $this->client->send('POST', "/certificado", ['body' => $json]);
+        return $this->client->send('POST', "/certificado", $payload);
     }
 
     public function mostra(): stdClass

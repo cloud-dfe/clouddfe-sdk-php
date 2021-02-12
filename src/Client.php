@@ -55,6 +55,10 @@ class Client
 
     public function send(string $method, string $route, array $payload = []): stdClass
     {
+        if (!empty($payload)) {
+            $json = json_encode($payload);
+            $payload = ['body' => $json];
+        }
         $response = $this->client->request($method, $route, $payload);
         return json_decode($response->getBody()->getContents());
     }
