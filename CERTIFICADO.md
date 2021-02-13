@@ -6,7 +6,7 @@
 
 **LEMBRE-SE: as consultas usando o SDK sempre retornam um objeto stdClass;**
 
-O certificado usado é apenas o modelo A1, esse tito de certificado vence a cada 12 meses, então necessita ser atualizado periodicamente.
+O certificado usado é apenas o modelo A1, esse tipo de certificado vence a cada 12 meses, então necessita ser atualizado periodicamente.
 
 ## Atualização do CERTIFICADO DIGITAL
 
