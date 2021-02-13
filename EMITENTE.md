@@ -69,7 +69,9 @@ try {
 
 ## Troca do TOKEN de acesso a API
 
-E permite também que o emitente possa substituir seu TOKEN atual por um novo, isso pode ocorrer caso haja suspeita de violação da segurança do seu aplicativo. Ao executar essa chamada o TOKEN anterior deixará de validar e apenas o novo TOKEN criado porderá ser usado.
+E permite também que o emitente possa substituir seu TOKEN atual por um novo, isso pode ocorrer caso haja suspeita de violação da segurança do seu aplicativo.
+
+Ao executar essa chamada o TOKEN anterior deixará de validar e apenas o novo TOKEN criado porderá ser usado.
 
 ```php
 use CloudDfe\Sdk\Client;
