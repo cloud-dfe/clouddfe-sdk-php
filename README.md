@@ -4,8 +4,9 @@ Este SDK em PHP tem por objetivo simplificar a tarefa de intalação e preparaç
 
 ## Forma de instalação do SDK
 
+```
 composer require cloud-dfe/clouddfe-sdk-php
-
+```
 
 ## Forma de uso
 
