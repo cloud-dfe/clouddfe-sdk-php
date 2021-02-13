@@ -76,5 +76,5 @@ E veja alguns detalhes na pasta dos [EXEMPLOS](https://github.com/cloud-dfe/clou
 [Operações com DFE](DFE.md)
 
 
-[ico-version]: https://img.shields.io/packagist/v/nfephp-org/sped-cte.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/cloud-dfe/clouddfe-sdk-php.svg?style=flat-square
 [link-packagist]: https://packagist.org/packages/cloud-dfe/clouddfe-sdk-php
