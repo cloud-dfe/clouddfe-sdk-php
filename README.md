@@ -1,6 +1,6 @@
 # SDK em PHP para API CloudDFe
 
-Este SDK em PHP tem por objetivo simplificar a tarefa de intalação e preparação do sue sistema para uso da nossa API, removendo parte da complexidade subjacente ao uso da mesma.
+Este SDK em PHP tem por objetivo simplificar a tarefa de intalação e preparação do seu sistema para uso da nossa API, removendo parte da complexidade subjacente ao uso da mesma.
 
 ## Forma de instalação do SDK
 
