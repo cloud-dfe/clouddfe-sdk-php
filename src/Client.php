@@ -34,8 +34,10 @@ class Client
         $this->ambiente = $params['ambiente'];
         $this->token = $params['token'];
         $this->options = $params['options'];
-        $debug = $params['options']['debug'] == true ? true : false;
-
+        $debug = false;
+        if (!empty($params['options'])) {
+            $debug = $params['options']['debug'] == true ? true : false;
+        }
         //default homologacao
         $this->uri = 'https://hom.api.cloud-dfe.com.br/v1';
         if ($this->ambiente == self::AMBIENTE_PRODUCAO) {

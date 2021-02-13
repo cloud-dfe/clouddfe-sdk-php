@@ -1,128 +1,71 @@
 # SDK em PHP para API CloudDFe
 
+Este SDK em PHP tem por objetivo simplificar a tarefa de intalação e preparação do sue sistema para uso da nossa API, removendo parte da complexidade subjacente ao uso da mesma.
+
+## Forma de instalação do SDK
+
 composer require cloud-dfe/clouddfe-sdk-php
 
 
+## Forma de uso
+
+Uma vez instalado o SDK é uma tarefa muito simples invocar o seu uso, por exemplo:
 
 ```php
 
 use CloudDfe\Sdk\Client;
+use CloudDfe\Sdk\Nfe;
 
 try {
-    $token = "token de softhouse sksksksksksksksksks";
-    $ambiente = 1;
-    $client = new Client($ambiente, $token);
 
-    $soft = new Softhouse($client);
-    $soft->criaEmitente($payload);
-    $soft->mostraEmitente($payload);
-    $soft->listaEmitente($payload);
-    $soft->deletaEmitente($payload);
-} catch (\Excepion $e) {
+    //token de emitente, todas as rotas relativas a tarefas realizadas pelos emitentes devem usar o token exclusivo desse emitente
+    $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbXAiOjcwLCJ1c3IiOiIyIiwidHAiO .......';
+    //selecione o ambente que deseja acessar HOMOLOGAÇÂO ou PRODUÇÃO
+    $ambiente = Client::AMBIENTE_HOMOLOGACAO;
+    // as opções, são opcionais e permitem ajustes no comportamento do SDK 
+    $options = [
+        'debug' => false
+    ];
+    //instancie a classe Client, responsável pela comunicação com a API
+    $client = new Client([
+        'ambiente' => $ambiente,
+        'token' => $token,
+        'options' => $options
+    ]);
+    //instancie a classe das operações desejadas
+    $nfe = new Nfe($client);
+    //realize a operação desejada
+    $resp = $nfe->status();
+    //$resp irá conter um OBJETO stdClass com o retorno da API
+    echo "<pre>";
+    print_r($resp);
+    echo "</pre>";
+
+} catch (\Exception $e) {
     echo $e->getMessage();
 }
-
-
-
-
-
-$token = "token de EMITENTE sksksksksksksksksks";
-$ambiente = 1;
-$options = [];
-$client = new Client([
-        $ambiente,
-        $token,
-        $options
-]);
-
-$emitente = new Emitente($client, $options = []);
-$resp = $emitente->atualiza($payload);
-$novo_token = $emitente->token();
-
-$certificado = new Certificado($client);
-$resp = $certificado->atualiza($payload);
-$resp = $certificado->mostra();
-
-
-$nfe = new Nfe($client);
-
-$payload = [];
-$resp = $nfe->status();
-$resp = $nfe->cria($payload);
-$resp = $nfe->consulta($payload);
-$resp = $nfe->busca($payload);
-$resp = $nfe->cancela($payload);
-$resp = $nfe->correcao($payload);
-$resp = $nfe->inutiliza($payload);
-$resp = $nfe->pdf($payload);
-$resp = $nfe->manifesta($payload);
-$resp = $nfe->backup($payload);
-$resp = $nfe->eventoTransporte($payload); //novo
-
-
-
-
-$nfce = new Nfce($client);
-
-$resp = $nfce->status();
-$resp = $nfce->cria($payload);
-$resp = $nfce->consulta($payload);
-$resp = $nfce->busca($payload);
-$resp = $nfce->cancela($payload);
-$resp = $nfce->inutiliza($payload);
-$resp = $nfce->pdfe($payload);
-$resp = $nfce->offline();
-$resp = $nfce->substitui($payload);
-$resp = $nfce->backup($payload);
-
-
-$mdfe = new Mdfe($client);
-
-$resp = $mdfe->status();
-$resp = $mdfe->cria($payload);
-$resp = $mdfe->consulta($payload);
-$resp = $mdfe->busca($payload);
-$resp = $mdfe->cancela($payload);
-$resp = $mdfe->condutor($payload);
-$resp = $mdfe->encerra($payload);
-$resp = $mdfe->pdf($payload);
-$resp = $mdfe->offline();
-$resp = $mdfe->backup($payload);
-
-
-$cte = new Cte($client);
-
-$resp = $cte->status();
-$resp = $cte->cria($payload);
-$resp = $cte->consulta($payload);
-$resp = $cte->busca($payload);
-$resp = $cte->cancela($payload);
-$resp = $cte->correcao($payload);
-$resp = $cte->inutiliza($payload);
-$resp = $cte->pdf($payload);
-$resp = $cte->backup($payload);
-
-
-$cteos = new CteOS($client);
-
-$resp = $cteos->status();
-$resp = $cteos->cria($payload);
-$resp = $cteos->consulta($payload);
-$resp = $cteos->busca($payload);
-$resp = $cteos->cancela($payload);
-$resp = $cteos->correcao($payload);
-$resp = $cteos->inutiliza($payload);
-$resp = $cteos->pdf($payload);
-$resp = $cteos->backup($payload);
-
-
-$dfe = new Dfe($client);
-
-$resp = $dfe->busca($tipo, $payload);
-$resp = $dfe->backup($payload);
-
-
-
-
-
 ```
+
+Para saber os detalhes referentes ao dados de envio e os retornos consulte nossa documentação [CloudDocs](https://doc.cloud-dfe.com.br/).
+E veja alguns detalhes na pasta dos [EXEMPLOS](https://github.com/cloud-dfe/clouddfe-sdk-php/tree/master/examples). 
+
+
+[Operações da SOFTHOUSE](SOFTHOUSE.md)
+
+[Operações com cadastro do EMITENTE](EMITENTE.md)
+
+[Operações com os CERTIFICADOS](CERTIFICADO.md)
+
+[Operações com NFE](NFE.md)
+
+[Operações com NFCE](NFCE.md)
+
+[Operações com NFSE](NFSE.md)
+
+[Operações com CTE](CTE.md)
+
+[Operações com CTEOS](CTEOS.md)
+
+[Operações com MDFE](MDFEE.md)
+
+[Operações com DFE](DFEE.md)
