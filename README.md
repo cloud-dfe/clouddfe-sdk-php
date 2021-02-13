@@ -2,6 +2,10 @@
 
 Este SDK em PHP tem por objetivo simplificar a tarefa de intalação e preparação do seu sistema para uso da nossa API, removendo parte da complexidade subjacente ao uso da mesma.
 
+
+[![Latest Version on Packagist][ico-version]][link-packagist]
+
+
 ## Forma de instalação do SDK
 
 ```
@@ -23,7 +27,7 @@ try {
     $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbXAiOjcwLCJ1c3IiOiIyIiwidHAiO .......';
     //selecione o ambente que deseja acessar HOMOLOGAÇÂO ou PRODUÇÃO
     $ambiente = Client::AMBIENTE_HOMOLOGACAO;
-    // as opções, são opcionais e permitem ajustes no comportamento do SDK 
+    // as opções, são opcionais e permitem ajustes no comportamento do SDK
     $options = [
         'debug' => false
     ];
@@ -48,7 +52,7 @@ try {
 ```
 
 Para saber os detalhes referentes ao dados de envio e os retornos consulte nossa documentação [CloudDocs](https://doc.cloud-dfe.com.br/).
-E veja alguns detalhes na pasta dos [EXEMPLOS](https://github.com/cloud-dfe/clouddfe-sdk-php/tree/master/examples). 
+E veja alguns detalhes na pasta dos [EXEMPLOS](https://github.com/cloud-dfe/clouddfe-sdk-php/tree/master/examples).
 
 
 [Operações da SOFTHOUSE](SOFTHOUSE.md)
@@ -70,3 +74,6 @@ E veja alguns detalhes na pasta dos [EXEMPLOS](https://github.com/cloud-dfe/clou
 [Operações com MDFE](MDFE.md)
 
 [Operações com DFE](DFE.md)
+
+
+[link-packagist]: https://packagist.org/packages/cloud-dfe/clouddfe-sdk-php
