@@ -1,6 +1,10 @@
 # Operações com o cadastro do EMITENTE
 
 *NOTA: estas operações funcionam em ambos os ambientes (homologação e produção)*
+*NOTA: Esta operação somente pode ser executada com o token do emitente.*
+
+**LEMBRE-SE: as consultas usando o SDK sempre retornam um objeto stdClass;**
+
 
 ## Atualização de cadastro do Emitente
 
@@ -13,7 +17,7 @@ use CloudDfe\Sdk\Emitente;
 try {
 
     //token de emitente
-    $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbXAiOjcwLCJ1c3IiOiIyIiwidHAiOjIsImlhdCI6MTU4MDkzNzM3MH0.KvSUt2x8qcu4Rtp2XNTOINqR-3c5V8iyITDmLoUF_SE';
+    $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9 ....';
     $ambiente = Client::AMBIENTE_HOMOLOGACAO;
     $options = [
         'debug' => false
@@ -53,12 +57,12 @@ try {
         'uf' => 'SP',
         'cep' => '02233000',
         'logo' => null
-        
+
     ];
-    $resp = $emitente->atualiza($payload);
+    $resp = $emitente->atualiza($payload); //os payloads são sempre ARRAYS
 
     echo "<pre>";
-    print_r($resp);
+    print_r($resp); //imprime o objeto $resp em tela
     echo "</pre>";
 
 } catch (\Exception $e) {
@@ -80,7 +84,7 @@ use CloudDfe\Sdk\Emitente;
 try {
 
     //token de emitente
-    $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbXAiOjcwLCJ1c3IiOiIyIiwidHAiOjIsImlhdCI6MTU4MDkzNzM3MH0.KvSUt2x8qcu4Rtp2XNTOINqR-3c5V8iyITDmLoUF_SE';
+    $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ ....';
     $ambiente = Client::AMBIENTE_HOMOLOGACAO;
     $options = [
         'debug' => false
@@ -96,11 +100,10 @@ try {
     $resp = $emitente->token();
 
     echo "<pre>";
-    print_r($resp);
+    print_r($resp); //imprime o objeto $resp em tela
     echo "</pre>";
 
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
 ```
-
