@@ -1,4 +1,4 @@
-# SDK CloudDFe Operações com EMITENTE
+# Operações com o cadastro do EMITENTE
 
 *NOTA: estas operações funcionam em ambos os ambientes (homologação e produção)*
 
