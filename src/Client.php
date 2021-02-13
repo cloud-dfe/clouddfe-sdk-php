@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace CloudDfe\Sdk;
 
-use GuzzleHttp\Client as GClient;
+use GuzzleHttp\Client as Guzzle;
 use stdClass;
-
 
 class Client
 {
@@ -14,9 +13,11 @@ class Client
     protected $token;
     protected $options;
     protected $uri;
+    protected $params;
+    protected $client;
 
-    public const AMBIENTE_PRODUCAO = 1;
-    public const AMBIENTE_HOMOLOGACAO = 1;
+    const AMBIENTE_PRODUCAO = 1;
+    const AMBIENTE_HOMOLOGACAO = 2;
 
     public function __construct($params = [])
     {
@@ -36,11 +37,11 @@ class Client
         $debug = $params['options']['debug'] == true ? true : false;
 
         //default homologacao
-        $this->uri = 'http://localhost:8081';
+        $this->uri = 'https://hom.api.cloud-dfe.com.br/v1';
         if ($this->ambiente == self::AMBIENTE_PRODUCAO) {
-            $this->uri = 'http://localhost:8081';
+            $this->uri = 'https://api.cloud-dfe.com.br/v1';
         }
-        $this->client = new GClient([
+        $this->client = new Guzzle([
             'debug' => $debug,
             'base_uri' => $this->uri,
             'headers' => [
@@ -53,8 +54,10 @@ class Client
 
     public function send(string $method, string $route, array $payload = []): stdClass
     {
-        $json = json_encode($payload);
-        $payload = ['body' => $json];
+        if (!empty($payload)) {
+            $json = json_encode($payload);
+            $payload = ['body' => $json];
+        }
         $response = $this->client->request($method, $route, $payload);
         $body = $response->getBody()->getContents();
         return json_decode($body);

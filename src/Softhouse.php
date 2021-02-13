@@ -34,5 +34,4 @@ class Softhouse extends Base
         $cnpj = $payload['cnpj'];
         return $this->client->send('DELETE', "/soft/emitente/{$cnpj}", []);
     }
-
 }
