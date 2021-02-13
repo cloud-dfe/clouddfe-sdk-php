@@ -10,7 +10,7 @@ O certificado usado é apenas o modelo A1, esse tipo de certificado vence a cada
 
 ## Atualização do CERTIFICADO DIGITAL
 
-Este metodo serve para inserir o certificado para o emitente ou atualizar o certificado vencido (ou a vencer) do emitente.
+Este método serve para inserir o certificado para o emitente ou atualizar o certificado vencido (ou a vencer) do emitente.
 
 *NOTA: O certificado será VALIDADO antes de ser inserido no registro do emitente, e deve estar válido e pertencer ao CNPJ/CPF do emitente, caso contrario você rebeberá um aviso de erro e o certificado não será aceito.*
 
