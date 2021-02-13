@@ -19,9 +19,14 @@ class Softhouse extends Base
         return $this->client->send('GET', "/soft/emitente/{$cnpj}", []);
     }
 
+    public function atualizaEmitente(array $payload): stdClass
+    {
+        return $this->client->send('PUT', "/soft/emitente", $payload);
+    }
+
     public function listaEmitentes(array $payload): stdClass
     {
-        $status = $payload['status'];
+        $status = !empty($payload['status']) ? $payload['status'] : '';
         $rota = '/soft/emitente';
         if ($status == 'deletados' || $status == 'inativos') {
             $rota = '/soft/emitente/deletados';
@@ -31,6 +36,9 @@ class Softhouse extends Base
 
     public function deletaEmitente(array $payload): stdClass
     {
+        if (empty($payload) || empty($payload['cnpj'])) {
+            throw new \Exception('Deve ser passado um CNPJ ou um CPF para efetuar a deleçao do emitente.')
+        }
         $cnpj = $payload['cnpj'];
         return $this->client->send('DELETE', "/soft/emitente/{$cnpj}", []);
     }
