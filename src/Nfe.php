@@ -65,4 +65,9 @@ class Nfe extends Base
         $key = self::checkKey($payload);
         return $this->client->send('GET', "/nfe/download/{$key}", []);
     }
+
+    public function recebidas(array $payload): stdClass
+    {
+        return $this->client->send('GET', "/nfe/recebidas", $payload);
+    }
 }

@@ -607,3 +607,45 @@ try {
     echo $e->getMessage();
 }
 ```
+## Busca as NFe destinadas 
+
+Busca as chaves de acesso das notas que foram emitidas contra o CNPJ do emitente
+####Para saber mais detalhes consulte a documentação https://doc.cloud-dfe.com.br/v1/nfe/#!/1-10
+
+```php
+
+use CloudDfe\Sdk\Client;
+use CloudDfe\Sdk\Nfe;
+
+try {
+
+    //token de emitente
+    $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9 ....';
+    $ambiente = Client::AMBIENTE_HOMOLOGACAO;
+    $options = [
+        'debug' => false
+    ];
+
+    $client = new Client([
+        'ambiente' => $ambiente,
+        'token' => $token,
+        'options' => $options
+    ]);
+
+    $nfe = new Nfe($client);
+
+    $payload = [
+        'ultimo_nsu' => '10',
+        'numero_nsu' => '0',
+        'eventos' => false
+    ];
+    $resp = $nfe->recebidas($payload); //os payloads são sempre ARRAYS
+
+    echo "<pre>";
+    print_r($resp); //imprime o objeto $resp em tela
+    echo "</pre>";
+
+} catch (\Exception $e) {
+    echo $e->getMessage();
+}
+```

@@ -39,25 +39,6 @@ try {
         "codigo_municipio_fim" => "2408003",
         "nome_municipio_fim" => "Mossoró",
         "uf_fim" => "RN",
-        "retirar_mercadoria" => "1",
-        "detalhes_retirar" => null,
-        "tipo_programacao_entrega" => "0",
-        "sem_hora_tipo_hora_programada" => "0",
-        "remetente" => [
-            "cnpj" => "15493526000128",
-            "inscricao_estadual" => "239084510",
-            "nome" => "EMPRESA MODELO",
-            "razao_social" => "MODELO LTDA",
-            "telefone" => "8433163070",
-            "endereco" => [
-                "logradouro" => "AVENIDA TESTE",
-                "numero" => "444",
-                "bairro" => "CENTRO",
-                "codigo_municipio" => "2408003",
-                "nome_municipio" => "MOSSORÓ",
-                "uf" => "RN"
-            ]
-        ],
         "valores" => [
             "servico" => "0.00",
             "valor_total" => "0.00",

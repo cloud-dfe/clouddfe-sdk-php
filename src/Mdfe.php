@@ -64,4 +64,9 @@ class Mdfe extends Base
     {
         return $this->client->send('POST', "/mdfe/nfe", $payload);
     }
+
+    public function abertos(): stdClass
+    {
+        return $this->client->send('GET', "/mdfe/abertos", []);
+    }
 }
