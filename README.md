@@ -77,4 +77,4 @@ E veja alguns detalhes na pasta dos [EXEMPLOS](https://github.com/cloud-dfe/clou
 
 
 [ico-version]: https://img.shields.io/packagist/v/cloud-dfe/clouddfe-sdk-php.svg?style=flat-square
-[link-packagist]: https://packagist.org/packages/cloud-dfe/clouddfe-sdk-php
+[link-packagist]: https://packagist.org/packages/cloud-dfe/cloud-dfe-sdk-php
