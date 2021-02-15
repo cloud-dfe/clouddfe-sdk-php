@@ -52,6 +52,6 @@ class CteOS extends Base
 
     public function backup(array $payload): stdClass
     {
-        return $this->client->send('POST', "/cte/backup", $payload);
+        return $this->client->send('POST', "/cteos/backup", $payload);
     }
 }

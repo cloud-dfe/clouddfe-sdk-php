@@ -57,6 +57,11 @@ class Mdfe extends Base
 
     public function backup(array $payload): stdClass
     {
-        return $this->client->send('POST', "/nfe/backup", $payload);
+        return $this->client->send('POST', "/mdfe/backup", $payload);
+    }
+
+    public function nfe(array $payload): stdClass
+    {
+        return $this->client->send('POST', "/mdfe/nfe", $payload);
     }
 }
