@@ -17,4 +17,9 @@ class Emitente extends Base
     {
         return $this->client->send('PUT', "/emitente", $payload);
     }
+
+    public function mostra(): stdClass
+    {
+        return $this->client->send('GET', "/emitente", []);
+    }
 }

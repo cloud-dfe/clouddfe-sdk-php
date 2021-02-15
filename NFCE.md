@@ -260,7 +260,7 @@ try {
     $nfce = new Nfce($client);
 
     $resp = $nfce->consulta([
-        'chave' => '41210222545265000108550010001010021121093113'
+        'chave' => '41210222545265000108650010001010021121093113'
     ]);
 
     echo "<pre>";
@@ -303,7 +303,7 @@ try {
     $nfce = new Nfce($client);
 
     $payload = [
-        'chave' => '41210222545265000108550010001010021121093113',
+        'chave' => '41210222545265000108650010001010021121093113',
         'justificativa' => 'teste de cancelamento' //minimo de 15 caracteres
     ];
     $resp = $nfce->cancela($payload); //os payloads são sempre ARRAYS
@@ -425,7 +425,7 @@ try {
     $nfce = new Nfce($client);
 
     $payload = [
-        'chave' => '41210222545265000108550010001010031384099675'
+        'chave' => '41210222545265000108650010001010031384099675'
     ];
     $resp = $nfce->pdf($payload); //os payloads são sempre ARRAYS
 

@@ -250,7 +250,7 @@ try {
     $cte = new Cte($client);
 
     $resp = $cte->consulta([
-        'chave' => '41210222545265000108550010001010021121093113'
+        'chave' => '41210222545265000108570010001010021121093113'
     ]);
 
     echo "<pre>";
@@ -289,7 +289,7 @@ try {
     $cte = new Cte($client);
 
     $payload = [
-        'chave' => '41210222545265000108550010001010031384099675',
+        'chave' => '41210222545265000108570010001010031384099675',
         'correcoes' => [
             [
                 'grupo_corrigido' => 'ide',
@@ -340,7 +340,7 @@ try {
     $cte = new Cte($client);
 
     $payload = [
-        'chave' => '41210222545265000108550010001010021121093113',
+        'chave' => '41210222545265000108570010001010021121093113',
         'justificativa' => 'teste de cancelamento' //minimo de 15 caracteres
     ];
     $resp = $cte->cancela($payload); //os payloads são sempre ARRAYS
@@ -424,7 +424,7 @@ try {
     $cte = new Cte($client);
 
     $payload = [
-        'chave' => '41210222545265000108550010001010031384099675'
+        'chave' => '41210222545265000108570010001010031384099675'
     ];
     $resp = $cte->pdf($payload); //os payloads são sempre ARRAYS
 

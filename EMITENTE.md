@@ -108,3 +108,36 @@ try {
     echo $e->getMessage();
 }
 ```
+
+## Mostra os dados do emitente
+
+```php
+use CloudDfe\Sdk\Client;
+use CloudDfe\Sdk\Emitente;
+
+try {
+
+    //token de emitente
+    $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ ....';
+    $ambiente = Client::AMBIENTE_HOMOLOGACAO;
+    $options = [
+        'debug' => false
+    ];
+
+    $client = new Client([
+        'ambiente' => $ambiente,
+        'token' => $token,
+        'options' => $options
+    ]);
+
+    $emitente = new Emitente($client);
+    $resp = $emitente->mostra();
+
+    echo "<pre>";
+    print_r($resp); //imprime o objeto $resp em tela
+    echo "</pre>";
+
+} catch (\Exception $e) {
+    echo $e->getMessage();
+}
+```
