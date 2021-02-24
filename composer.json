@@ -52,7 +52,7 @@
     },
     "extra": {
         "branch-alias": {
-            "v1.0": "1.0-dev"
+            "v0.1": "v0.1"
         }
     },
     "minimum-stability": "stable"
