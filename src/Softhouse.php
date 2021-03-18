@@ -37,7 +37,7 @@ class Softhouse extends Base
     public function deletaEmitente(array $payload): stdClass
     {
         if (empty($payload) || empty($payload['cnpj'])) {
-            throw new \Exception('Deve ser passado um CNPJ ou um CPF para efetuar a deleçao do emitente.')
+            throw new \Exception('Deve ser passado um CNPJ ou um CPF para efetuar a deleçao do emitente.');
         }
         $cnpj = $payload['cnpj'];
         return $this->client->send('DELETE', "/soft/emitente/{$cnpj}", []);
