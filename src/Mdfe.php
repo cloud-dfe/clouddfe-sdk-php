@@ -69,4 +69,9 @@ class Mdfe extends Base
     {
         return $this->client->send('GET', "/mdfe/abertos", []);
     }
+
+    public function preview(array $payload): stdClass
+    {
+        return $this->client->send('POST', "/mdfe/preview", $payload);
+    }
 }

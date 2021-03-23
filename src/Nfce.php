@@ -59,4 +59,9 @@ class Nfce extends Base
     {
         return $this->client->send('POST', "/nfce/backup", $payload);
     }
+
+    public function preview(array $payload): stdClass
+    {
+        return $this->client->send('POST', "/nfce/preview", $payload);
+    }
 }

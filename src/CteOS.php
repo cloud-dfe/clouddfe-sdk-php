@@ -54,4 +54,9 @@ class CteOS extends Base
     {
         return $this->client->send('POST', "/cteos/backup", $payload);
     }
+
+    public function preview(array $payload): stdClass
+    {
+        return $this->client->send('POST', "/cteos/preview", $payload);
+    }
 }

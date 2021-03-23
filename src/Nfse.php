@@ -38,4 +38,9 @@ class Nfse extends Base
     {
         return $this->client->send('POST', "/nfse/consulta", $payload);
     }
+
+    public function preview(array $payload): stdClass
+    {
+        return $this->client->send('POST', "/nfse/preview", $payload);
+    }
 }

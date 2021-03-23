@@ -70,4 +70,9 @@ class Nfe extends Base
     {
         return $this->client->send('GET', "/nfe/recebidas", $payload);
     }
+
+    public function preview(array $payload): stdClass
+    {
+        return $this->client->send('POST', "/nfe/preview", $payload);
+    }
 }
