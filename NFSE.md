@@ -9,7 +9,7 @@
 
 ## Cria NFSe
 
-Este método é usado paa GERAR uma nova NFSe
+Este método é usado para GERAR uma nova NFSe
 
 *NOTA: como o processo é ASSINCRONO, então é necessária que uma segunda chamada (**Consulta**) seja feita alguns segundos após o envio desta chamada para se obter o resultado do precessamento da NFSe pela SEFAZ autorizadora, isso se esta chamada retornar sucesso, é claro.*
 
@@ -37,7 +37,7 @@ try {
 
     $nfse = new Nfse($client);
 
-    $paylod = [
+    $payload = [
         "numero" => "1",
         "serie" => "0",
         "tipo" => "1",
@@ -83,7 +83,92 @@ try {
             "art" => "1111"
         ]
     ];
-    $resp = $nfse->cria($paylod); //os payloads são sempre ARRAYS
+    $resp = $nfse->cria($payload); //os payloads são sempre ARRAYS
+
+    echo "<pre>";
+    print_r($resp); //imprime o objeto $resp em tela
+    echo "</pre>";
+
+} catch (\Exception $e) {
+    echo $e->getMessage();
+}
+```
+
+## Cria a pre-visualização da DANFSe
+
+Este método é usado para GERAR uma pre-visualização da DANFSe
+
+É muito importante que estude a [nossa documentação](https://doc.cloud-dfe.com.br/v1/nfse) para poder enviar essa chamada.
+
+
+```php
+use CloudDfe\Sdk\Client;
+use CloudDfe\Sdk\Nfse;
+
+try {
+
+    //token de emitente
+    $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9 ....';
+    $ambiente = Client::AMBIENTE_HOMOLOGACAO;
+    $options = [
+        'debug' => false
+    ];
+
+    $client = new Client([
+        'ambiente' => $ambiente,
+        'token' => $token,
+        'options' => $options
+    ]);
+
+    $nfse = new Nfse($client);
+
+    $payload = [
+        "numero" => "1",
+        "serie" => "0",
+        "tipo" => "1",
+        "status" => "1",
+        "data_emissao" => "2017-12-27T17:43:14-03:00",
+        "tomador" => [
+            "cnpj" => "07504505000132",
+            "cpf" => null,
+            "im" => null,
+            "razao_social" => "Acras Tecnologia da Informação LTDA",
+            "endereco" => [
+                "logradouro" => "Rua ABC",
+                "numero" => "16",
+                "complemento" => null,
+                "bairro" => "Jardim America",
+                "codigo_municipio" => "4119905",
+                "uf" => "PR",
+                "cep" => "81530900"
+            ]
+        ],
+        "servico" => [
+            "codigo_tributacao_municipio" => "10500",
+            "discriminacao" => "Exemplo Serviço",
+            "codigo_municipio" => "4119905",
+            "valor_servicos" => "1.00",
+            "valor_pis" => "1.00",
+            "valor_cofins" => "1.00",
+            "valor_inss" => "1.00",
+            "valor_ir" => "1.00",
+            "valor_csll" => "1.00",
+            "valor_outras" => "1.00",
+            "valor_aliquota" => "1.00",
+            "valor_desconto_incondicionado" => "1.00"
+        ],
+        "intermediario" => [
+            "cnpj" => "07504505000132",
+            "cpf" => null,
+            "im" => null,
+            "razao_social" => "Acras Tecnologia da Informação LTDA"
+        ],
+        "obra" => [
+            "codigo" => "2222",
+            "art" => "1111"
+        ]
+    ];
+    $resp = $nfse->preview($payload); //os payloads são sempre ARRAYS
 
     echo "<pre>";
     print_r($resp); //imprime o objeto $resp em tela

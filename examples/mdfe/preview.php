@@ -22,7 +22,7 @@ try {
 
     $mdfe = new Mdfe($client);
 
-    $paylod = [
+    $payload = [
         "tipo_operacao" => "2",
         "numero" => "26",
         "serie" => "1",
@@ -94,7 +94,7 @@ try {
         ],
         "tipo_transporte" => "2"
     ];
-    $resp = $mdfe->preview($paylod);
+    $resp = $mdfe->preview($payload);
 
     echo "<pre>";
     print_r($resp);

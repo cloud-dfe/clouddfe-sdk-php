@@ -45,7 +45,7 @@ try {
 
 ## Cria MDFe
 
-Este método é usado paa GERAR uma nova MDFe
+Este método é usado para GERAR uma nova MDFe
 
 É muito importante que estude a [nossa documentação](https://doc.cloud-dfe.com.br/v1/mdfe/manual/index.html) para poder enviar essa chamada.
 
@@ -71,7 +71,7 @@ try {
 
     $mdfe = new Mdfe($client);
 
-    $paylod = [
+    $payload = [
         "tipo_operacao" => "2",
         "numero" => "26",
         "serie" => "1",
@@ -143,7 +143,118 @@ try {
         ],
         "tipo_transporte" => "2"
     ];
-    $resp = $mdfe->cria($paylod); //os payloads são sempre ARRAYS
+    $resp = $mdfe->cria($payload); //os payloads são sempre ARRAYS
+
+    echo "<pre>";
+    print_r($resp); //imprime o objeto $resp em tela
+    echo "</pre>";
+
+} catch (\Exception $e) {
+    echo $e->getMessage();
+}
+```
+
+## Cria a pre-visualização da DAMDFe
+
+Este método é usado para GERAR uma pre-visualização da DAMDFe
+
+É muito importante que estude a [nossa documentação](https://doc.cloud-dfe.com.br/v1/mdfe/manual/index.html) para poder enviar essa chamada.
+
+
+```php
+use CloudDfe\Sdk\Client;
+use CloudDfe\Sdk\Mdfe;
+
+try {
+
+    //token de emitente
+    $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9 ....';
+    $ambiente = Client::AMBIENTE_HOMOLOGACAO;
+    $options = [
+        'debug' => false
+    ];
+
+    $client = new Client([
+        'ambiente' => $ambiente,
+        'token' => $token,
+        'options' => $options
+    ]);
+
+    $mdfe = new Mdfe($client);
+
+    $payload = [
+        "tipo_operacao" => "2",
+        "numero" => "26",
+        "serie" => "1",
+        "data_emissao" => "2020-11-25T09:21:42-00:00",
+        "uf_inicio" => "RN",
+        "uf_fim" => "GO",
+        "municipios_carregamento" => [
+            [
+                "codigo_municipio" => "2408003",
+                "nome_municipio" => "Mossoró"
+            ]
+        ],
+        "percursos" => [
+            [
+                "uf" => "PB"
+            ], [
+                "uf" => "PE"
+            ], [
+                "uf" => "BA"
+            ]
+        ],
+        "municipios_descarregamento" => [
+            [
+                "codigo_municipio" => "5200050",
+                "nome_municipio" => "Abadia de Goiás",
+                "nfes" => [
+                    [
+                        "chave" => "34255501343220005109556010100010641225557671"
+                    ]
+                ]
+            ]
+        ],
+        "valores" => [
+            "valor_total_carga" => "100.00",
+            "codigo_unidade_medida_peso_bruto" => "01",
+            "peso_bruto" => "1000.000"
+        ],
+        "informacao_adicional_fisco" => null,
+        "informacao_complementar" => null,
+        "modal_rodoviario" => [
+            "rntrc" => "57838055",
+            "ciot" => [],
+            "contratante" => [],
+            "vale_pedagio" => [],
+            "veiculo" => [
+                "codigo" => "000000001",
+                "placa" => "FFF1257",
+                "renavam" => "335540391",
+                "tara" => "0",
+                "tipo_rodado" => "01",
+                "tipo_carroceria" => "00",
+                "uf" => "MT",
+                "proprietario" => [
+                    "cnpj" => "15555270000224",
+                    "rntrc" => "33838121",
+                    "nome" => "TESTES TRANSPORTES LTDA",
+                    "inscricao_estadual" => "ISENTO",
+                    "uf" => "MT",
+                    "tipo" => "0"
+                ],
+                "condutores" => [
+                    [
+                        "nome" => "JOAO TESTE",
+                        "cpf" => "12456547872"
+                    ]
+                ]
+            ],
+            "reboque" => []
+        ],
+        "tipo_transporte" => "2"
+    ];
+    $resp = $mdfe->preview($payload); //os payloads são sempre ARRAYS
 
     echo "<pre>";
     print_r($resp); //imprime o objeto $resp em tela

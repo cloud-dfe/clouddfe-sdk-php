@@ -22,7 +22,7 @@ try {
 
     $nfce = new Nfce($client);
 
-    $paylod = [
+    $payload = [
         "natureza_operacao" => "VENDA DENTRO DO ESTADO",
         "serie" => "1",
         "numero" => "101003",
@@ -47,7 +47,7 @@ try {
                 "origem" => "0",
                 "inclui_no_total" => "1",
                 "imposto" => [
-                    "valor_total_tributos" => 9.43,
+                    "valor_aproximado_tributos" => 9.43,
                     "icms" => [
                         "situacao_tributaria" => "102",
                         "aliquota_credito_simples" => "0",
@@ -59,9 +59,9 @@ try {
                         "aliquota" => "0.00",
                         "aliquota_final" => "0.00",
                         "valor" => "0.00",
-                        "margem_valor_adicionado_st" => "0.00",
-                        "reducao_base_calculo_st" => "0.00",
-                        "base_calculo_st" => "0.00",
+                        "aliquota_margem_valor_adicionado_st" => "0.00",
+                        "aliquota_reducao_base_calculo_st" => "0.00",
+                        "valor_base_calculo_st" => "0.00",
                         "aliquota_st" => "0.00",
                         "valor_st" => "0.00"
                     ],
@@ -118,7 +118,7 @@ try {
             ]
         ]
     ];
-    $resp = $nfce->preview($paylod);
+    $resp = $nfce->preview($payload);
 
     echo "<pre>";
     print_r($resp);

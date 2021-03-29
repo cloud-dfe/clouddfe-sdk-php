@@ -22,7 +22,7 @@ try {
 
     $nfse = new Nfse($client);
 
-    $paylod = [
+    $payload = [
         "numero" => "1",
         "serie" => "0",
         "tipo" => "1",
@@ -68,7 +68,7 @@ try {
             "art" => "1111"
         ]
     ];
-    $resp = $nfse->preview($paylod);
+    $resp = $nfse->preview($payload);
 
     echo "<pre>";
     print_r($resp);
