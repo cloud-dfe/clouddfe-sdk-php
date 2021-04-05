@@ -35,16 +35,49 @@ try {
 
     $dfe = new DFe($client);
 
-    //a consulta poderá ser feita por quelquer um desses parametros, ordenados por precedência,
-    //ou  seja de a chave for passada a busca será feita exclusivamente pela chave, se a chave não for passada
-    //mas sim o periodo no formato "YYY-MM a busca trará todos os documentos desse período e assim por diante
     $payload = [
-        "chave" => "41190808322788000127550010000010011537233885",
-        //"periodo" => "2020-10",
+        "periodo" => "2020-10",
         //"data" => "2020-10-15",
         //"cnpj" => "08322788000127"
     ];
     $resp = $dfe->buscaNfe($payload); //os payloads são sempre ARRAYS
+
+    echo "<pre>";
+    print_r($resp); //imprime o objeto $resp em tela
+    echo "</pre>";
+
+} catch (\Exception $e) {
+    echo $e->getMessage();
+}
+```
+
+## Download de uma NFe
+
+```php
+
+use CloudDfe\Sdk\Client;
+use CloudDfe\Sdk\DFe;
+
+try {
+
+    //token de emitente
+    $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ ....';
+    $ambiente = Client::AMBIENTE_HOMOLOGACAO;
+    $options = [
+        'debug' => false
+    ];
+
+    $client = new Client([
+        'ambiente' => $ambiente,
+        'token' => $token,
+        'options' => $options
+    ]);
+
+    $dfe = new DFe($client);
+
+    $resp = $dfe->downloadNfe([
+        'chave' => '41210222545265000108550010001010021121093113'
+    ]);
 
     echo "<pre>";
     print_r($resp); //imprime o objeto $resp em tela
@@ -83,16 +116,49 @@ try {
 
     $dfe = new DFe($client);
 
-    //a consulta poderá ser feita por quelquer um desses parametros, ordenados por precedência,
-    //ou  seja de a chave for passada a busca será feita exclusivamente pela chave, se a chave não for passada
-    //mas sim o periodo no formato "YYY-MM a busca trará todos os documentos desse período e assim por diante
     $payload = [
-        "chave" => "41190808322788000127570010000010011537233885",
-        //"periodo" => "2020-10",
+        "periodo" => "2020-10",
         //"data" => "2020-10-15",
         //"cnpj" => "08322788000127"
     ];
     $resp = $dfe->buscaNfe($payload); //os payloads são sempre ARRAYS
+
+    echo "<pre>";
+    print_r($resp); //imprime o objeto $resp em tela
+    echo "</pre>";
+
+} catch (\Exception $e) {
+    echo $e->getMessage();
+}
+```
+
+## Download de um CTe
+
+```php
+
+use CloudDfe\Sdk\Client;
+use CloudDfe\Sdk\DFe;
+
+try {
+
+    //token de emitente
+    $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ ....';
+    $ambiente = Client::AMBIENTE_HOMOLOGACAO;
+    $options = [
+        'debug' => false
+    ];
+
+    $client = new Client([
+        'ambiente' => $ambiente,
+        'token' => $token,
+        'options' => $options
+    ]);
+
+    $dfe = new DFe($client);
+
+    $resp = $dfe->downloadCte([
+        'chave' => '41210222545265000108570010001010021121093113'
+    ]);
 
     echo "<pre>";
     print_r($resp); //imprime o objeto $resp em tela

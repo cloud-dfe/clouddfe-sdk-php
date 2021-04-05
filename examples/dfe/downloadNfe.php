@@ -3,7 +3,7 @@
 require_once('../../bootstrap.php');
 
 use CloudDfe\Sdk\Client;
-use CloudDfe\Sdk\DFe;
+use CloudDfe\Sdk\Dfe;
 
 try {
 
@@ -20,14 +20,11 @@ try {
         'options' => $options
     ]);
 
-    $dfe = new DFe($client);
+    $dfe = new Dfe($client);
 
-    $payload = [
-        "periodo" => "2020-10",
-        "data" => "2020-10-15",
-        "cnpj" => "06338788000127"
-    ];
-    $resp = $dfe->buscaCte($payload);
+    $resp = $dfe->downloadNfe([
+        'chave' => '41210222545265000108550010001010021121093113'
+    ]);
 
     echo "<pre>";
     print_r($resp);
