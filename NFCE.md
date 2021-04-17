@@ -156,16 +156,6 @@ try {
                 "informacoes_adicionais_item" => "Valor aproximado tributos R$: 9,43 (4,20%) Fonte: IBPT"
             ]
         ],
-        "icms_base_calculo" => 0,
-        "icms_valor_total" => 0,
-        "valor_produtos" => 224.5,
-        "valor_frete" => 0,
-        "valor_seguro" => 0,
-        "valor_desconto" => 0,
-        "valor_pis" => 3.7,
-        "valor_cofins" => 17.06,
-        "valor_outras_despesas" => 0,
-        "valor_total" => 224.5,
         "frete" => [
             "modalidade_frete" => "9"
         ],
@@ -303,16 +293,6 @@ try {
                 "informacoes_adicionais_item" => "Valor aproximado tributos R$: 9,43 (4,20%) Fonte: IBPT"
             ]
         ],
-        "icms_base_calculo" => 0,
-        "icms_valor_total" => 0,
-        "valor_produtos" => 224.5,
-        "valor_frete" => 0,
-        "valor_seguro" => 0,
-        "valor_desconto" => 0,
-        "valor_pis" => 3.7,
-        "valor_cofins" => 17.06,
-        "valor_outras_despesas" => 0,
-        "valor_total" => 224.5,
         "frete" => [
             "modalidade_frete" => "9"
         ],
