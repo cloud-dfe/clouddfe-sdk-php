@@ -64,4 +64,9 @@ class Nfce extends Base
     {
         return $this->client->send('POST', "/nfce/preview", $payload);
     }
+
+    public function importa(array $payload): stdClass
+    {
+        return $this->client->send('POST', "/nfce/importa", $payload);
+    }
 }

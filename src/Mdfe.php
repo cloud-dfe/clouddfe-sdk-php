@@ -74,4 +74,9 @@ class Mdfe extends Base
     {
         return $this->client->send('POST', "/mdfe/preview", $payload);
     }
+
+    public function importa(array $payload): stdClass
+    {
+        return $this->client->send('POST', "/mdfe/importa", $payload);
+    }
 }
