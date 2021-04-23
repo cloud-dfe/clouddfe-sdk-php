@@ -64,4 +64,9 @@ class Cte extends Base
     {
         return $this->client->send('POST', "/cte/importa", $payload);
     }
+
+    public function desacordo(array $payload): stdClass
+    {
+        return $this->client->send('POST', "/cte/desacordo", $payload);
+    }
 }

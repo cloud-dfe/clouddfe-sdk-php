@@ -64,4 +64,9 @@ class CteOS extends Base
     {
         return $this->client->send('POST', "/cteos/importa", $payload);
     }
+
+    public function desacordo(array $payload): stdClass
+    {
+        return $this->client->send('POST', "/cteos/desacordo", $payload);
+    }
 }
