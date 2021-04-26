@@ -80,4 +80,9 @@ class Nfe extends Base
     {
         return $this->client->send('POST', "/nfe/importa", $payload);
     }
+
+    public function interessado(array $payload): stdClass
+    {
+        return $this->client->send('POST', "/nfe/interessado", $payload);
+    }
 }
